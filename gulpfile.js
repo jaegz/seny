@@ -69,7 +69,7 @@ gulp.task( 'default', ['styles', 'js', 'js-vendor', 'browser-sync'], function() 
 // browser sync - static server
 gulp.task( 'browser-sync', function() {
 	browserSync.init({
-		proxy   : "http://localhost/safety-execs-of-ny/wp",
+		proxy   : "http://localhost/wp_krake-test",
 		//server: './',
 
 		notify: {
