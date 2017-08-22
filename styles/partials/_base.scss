@@ -1,0 +1,58 @@
+html {
+  color: #181818;
+  min-width: 320px; 
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-smooth: always; 
+}
+
+::-moz-selection {
+  color: white;
+  background: #8b8888;
+  text-shadow: none; 
+}
+
+::selection {
+  color: white;
+  background: #8b8888;
+  text-shadow: none; 
+}
+
+.clearfix {
+  zoom: 1; 
+}
+
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden; 
+}
+
+.clearfix:after {
+  clear: both; 
+}
+
+.right {
+  float: right; 
+}
+
+.left {
+  float: left; 
+}
+
+.center {
+  margin: 0 auto; 
+}
+
+.hidden {
+  visibility: hidden; 
+}
+
+a {
+  text-decoration: none;
+}

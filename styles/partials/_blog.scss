@@ -1,0 +1,378 @@
+
+#blogroll {
+	background-color: white;
+	padding: 1% 0 10%;
+
+	@media screen and (max-width: 768px) {
+		position: relative;
+		//top: 60px;
+	}
+
+	@media screen and (max-width: 750px) {
+		//top: 50px;
+	}
+
+	article {
+		width: auto;
+
+		.post {
+			border: 1px solid #eee;
+			box-shadow: 1px 1px 1px #eee;
+			margin: 2% 15%;
+			padding: 2em;
+
+			@media screen and (max-width: 768px) {
+				margin: 2%;
+			}
+
+			.entry-header {
+				background-color: white;
+
+				.entry-meta {
+					color: #8b8888;
+					font-size: 1.2em;
+					margin-bottom: 3.5%;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1em;
+					}
+				}
+				
+				h1.entry-title,
+				h2.entry-title {
+					a {
+						color: #000;
+						font-size: 2.8em;
+						font-weight: 300;
+						line-height: 1em;
+						text-transform: none;
+						
+						@media screen and (min-width: 1200px) {
+							font-size: 1.6em;
+						}
+
+						@media screen and (max-width: 768px) {
+							font-size: 3em;
+						}
+
+						@media screen and (max-width: 750px) {
+							font-size: 2em;
+						}
+
+						&:hover {
+							color: #00b9d5;
+						}
+					}
+				}
+
+				h2.entry-subtitle,
+				h3.entry-subtitle {
+					font-size: 1.8em;
+					font-weight: 300;
+					margin-top: 0.2em;
+					text-transform: none;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1.6em;
+					}
+
+					@media screen and (max-width: 768px) {
+						font-size: 2em;
+						margin: 1em 0;
+					}
+
+					@media screen and (max-width: 750px) {
+						font-size: 1.4em;
+					}
+				}
+			}
+
+			.featured-img {
+				margin-top: 2%;
+			}
+
+			.entry-content {
+
+				h2 {
+					font-size: 1.8em;
+					font-weight: 300;
+					margin-top: 0.2em;
+					text-transform: none;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1.6em;
+					}
+
+					@media screen and (max-width: 768px) {
+						font-size: 2em;
+						margin: 1em 0;
+					}
+
+					@media screen and (max-width: 750px) {
+						font-size: 1.4em;
+					}
+				}
+
+				p {
+					font-size: 1.4em;
+					font-weight: 300;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1.3em;
+					}
+
+					@media screen and (max-width: 768px) {
+						font-size: 1.6em;
+					}
+
+					@media screen and (max-width: 750px) {
+						font-size: 1.2em;
+					}
+				}
+			}
+
+			a.readmore {
+				color: #00b9d5;
+				font-size: 1.2em;
+				font-weight: 400;
+				margin-top: 1em;
+				display: block;
+
+				@media screen and (max-width: 768px) {
+					font-size: 1.6em;
+				}
+
+				@media screen and (max-width: 750px) {
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+}
+
+#blogsingle {
+	background-color: white;
+	padding: 3% 0 5%;
+
+	@media screen and (max-width: 768px) {
+		position: relative;
+		//top: 60px;
+	}
+
+	@media screen and (max-width: 750px) {
+		//top: 50px;
+	}
+
+	article {
+		width: auto;
+
+		.post,
+		.faq {
+			margin: 0% 15%;
+			padding: 1em 1.4em;
+
+			@media screen and (max-width: 768px) {
+				margin: 0% 1%;
+			}
+
+			.entry-header {
+				background-color: white;
+
+				.entry-meta {
+					margin-bottom: 3.5%;
+					font-size: 1.2em;
+					color: #8b8888;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1em;
+					}
+				}
+				
+				h1.entry-title,
+				h2.entry-title {
+					font-size: 3.1em;
+					text-transform: none;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 2.35em;
+					}
+
+					@media screen and (max-width: 768px) {
+						font-size: 3em;
+					}
+
+					@media screen and (max-width: 750px) {
+						font-size: 2em;
+					}
+
+					a {
+						color: #000;
+						font-size: 3.1em;
+						line-height: 1em;
+
+						&:hover {
+							color: #00b9d5;
+						}
+					}
+				}
+
+				h2.entry-subtitle,
+				h3.entry-subtitle {
+					font-weight: normal;
+					font-size: 2.05em;
+					margin-top: 1%;
+					text-transform: none;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1.5em;
+						font-weight: 300;
+						margin-top: 0.2em;
+					}
+
+					@media screen and (max-width: 768px) {
+						font-size: 2em;
+						margin: 1em 0;
+					}
+
+					@media screen and (max-width: 750px) {
+						font-size: 1.4em;
+					}
+				}
+			}
+
+			.featured-img {
+				margin-top: 2%;
+			}
+
+			p {
+				font-size: 1.4em;
+			    letter-spacing: .025em;
+			    font-weight: 300;
+
+			    @media screen and (min-width: 1200px) {
+			    	font-size: 1.3em;
+			    }
+			}
+
+			.entry-content {
+				h2 {
+					font-weight: normal;
+					font-size: 2.05em;
+					margin-top: 1%;
+					text-transform: none;
+
+					@media screen and (min-width: 1200px) {
+						font-size: 1.5em;
+						font-weight: 300;
+						margin-top: 0.2em;
+					}
+
+					@media screen and (max-width: 768px) {
+						font-size: 2em;
+						margin: 1em 0;
+					}
+
+					@media screen and (max-width: 750px) {
+						font-size: 1.4em;
+					}
+				}
+				p {
+					font-size: 1.2em;
+					letter-spacing: .02em;
+					line-height: 1.8em; 
+
+					@media screen and (max-width: 1200px) {
+					  font-size: 1.4em;
+					  line-height: 1.8em; 
+					}
+					
+					@media screen and (max-width: 768px) {
+					  font-size: 1.6em;
+					  line-height: 2em; 
+					}
+
+					@media screen and (max-width: 750px) {
+					  font-size: 1.4em;
+					  line-height: 1.55em; 
+					}
+				}
+				img {
+					height: auto;
+				}
+			}
+
+			.breadcrumb {
+				font-weight: normal;
+				font-size: 1.2em;
+				color: #181818;
+				margin-top: 2em;
+
+				ul {
+					li {
+						display: inline-block;
+
+						&:after {
+							content: ' > ';
+						}
+						&:last-child {
+							&:after {
+								content: '';
+							}
+						}
+						a {
+						color: #00b9d5;
+						font-weight: normal;
+
+						&:hover {
+							color: #181818;
+						}
+					}
+					}
+				}
+			}
+
+			#socialshare {
+			    p {
+			      	display: inline-block;
+			      	padding: 0 .2em;
+
+			      	&:first-of-type {
+			      		margin-bottom: 0;
+			      	}
+			      	
+			      	b {
+			      		letter-spacing: .1em;
+			      	}
+
+			      	a {
+			        	background: none;
+				        border: 2px #00D469 solid;
+				        border-radius: 10%;
+				        display: block;
+				        height: 23px;
+				        opacity: .25;
+				        padding: 7px;
+				        width: 23px;
+
+				        &:hover {
+				          border: 2px #00b9d5 solid;
+				          opacity: 1;  
+				        }
+				    }
+
+			    	path {
+			    		fill: #00D469; 
+			    	}
+			      
+			      	img {
+			        	display: block; 
+			      	}
+			    }
+			}
+		}
+	}
+}
+
+
+
+

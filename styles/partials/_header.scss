@@ -1,0 +1,78 @@
+#header {
+  background: #444;
+  color: #bbb;
+  cursor: default;
+  height: 3.25em;
+  left: 0;
+  line-height: 3.25em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  color: rgba(255, 255, 255, 0.75);
+  position: absolute;
+
+  h1 { 
+    color: inherit;
+    height: inherit;
+    left: 1.25em;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    font-size: 100%;
+
+    a {
+      color: #fff;
+      font-weight: 400;
+      border: 0;
+      background-image: url('images/seny-logo.png');
+      background-repeat: no-repeat;
+      background-size: 20%;
+      padding-left: 4em;
+      padding-top: 1em;
+      padding-bottom: 2em;
+
+      img {
+        width: 5%;
+      }
+    }
+  }
+
+  nav {
+    // position: absolute;
+    // right: 0.75em;
+    // top: 0;
+    // vertical-align: middle;
+
+      ul {
+        list-style: none;
+
+        li {
+          display: inline-block;
+
+          a {
+            color: #fff;
+            text-decoration: none;
+            // height: 2em;
+            // line-height: 1.95em;
+            padding: 0.7em;
+            border-bottom: none;
+
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &:last-child {
+            a { 
+              background-color: red;
+              border-radius: 3px;
+            }
+          }
+        }
+      }
+  }
+}

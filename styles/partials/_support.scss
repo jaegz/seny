@@ -1,0 +1,136 @@
+#support {
+	background-color: white;
+	padding: 3% 0 10%;
+
+	article {
+
+		form {
+			label {
+				font-size: 1.2em;
+				display: block;
+				margin-top: 1.5em;
+
+				&.error {
+					color: #FF3700;
+				    font-family: sans-serif;
+				    font-weight: bold;
+				    font-size: 1.1em;
+					margin-top: 10px;
+				}
+
+				.required:after {
+					color: #FF3700;
+					content: ' *';
+				    font-weight: bold;
+				}
+			}
+
+			input {
+				&[type=text],
+				&[type=email] {
+					display: block;
+					border: 2px solid #eee;
+					border-radius: 4px;
+					margin-top: .2em;
+					width: 60%;
+					text-indent: 0;
+					padding: 0.5em;
+					font-size: 0.85em;
+					@media screen and (max-width: 768px) {
+						width: 95%;
+					}
+				}
+
+				&[type=submit] {
+					display: block;
+					margin-top: 3.5em;
+					margin-right: 0;
+					float: none;
+					@media screen and (max-width: 768px) {
+						width: 100%;
+					}
+				}
+
+			}
+			
+			textarea {
+				border: 2px solid #eee;
+				// font-family: Raleway,sans-serif;
+				font-size: 0.85em;
+    			font-weight: 400;
+				height: 200px;
+				margin: .5em 0 0;
+				padding: 0.5em;
+				width: 57%;
+				@media screen and (max-width: 768px) {
+					width: 96%;
+					padding: 1em 0.5em;
+				}
+			}
+
+			button, input[type=file] {
+			    background: white;
+			    border: 2px solid #eee;
+			    color: #181818;
+		        font-family: Raleway,sans-serif;
+			    font-weight: 400;
+			    font-size: 0.85em;
+			    margin-top: 0.5em;
+			    padding: .5em;
+			}
+
+			p.success {
+			    background: #00D469;
+			    color: white;
+			    font-size: 1.2em;
+				padding: 1em;
+			    position: relative;
+			    width: 50%;
+
+			    .exit {
+				    border: 1px solid white;
+				    padding: 0px 5px;
+			    	position: absolute;
+				    right: 0.5em;
+    				top: 0.5em;
+			    }
+			}
+
+			p.error {
+			    background: #FF3700;
+			    color: white;
+			    font-size: 1.2em;
+				padding: 1em;
+			    position: relative;
+			    width: 50%;
+
+			    .exit {
+				    border: 1px solid white;
+				    padding: 0px 5px;
+			    	position: absolute;
+				    right: 0.5em;
+    				top: 0.5em;
+			    }
+			}
+		}
+		h3 {
+			font-size: 1.4em;
+			margin: 1em 0;
+
+			&:nth-of-type(n+2) {
+				margin-top: 2em;
+			}
+		}
+
+		ul {
+			list-style: none;
+
+			li {
+				a {
+					font-size: 1.4em;
+					font-weight: normal;
+				}
+			}
+		}
+	}
+}

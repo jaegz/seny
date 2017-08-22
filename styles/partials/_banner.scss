@@ -1,0 +1,12 @@
+section#banner {
+	h2 {
+		font-size: 2.5em;
+		width: 74%;
+		margin: 0 auto;
+		text-align: left;
+
+		@media (min-width: 1280px) {
+			width: 60%;
+		}
+	}
+}

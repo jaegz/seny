@@ -1,0 +1,169 @@
+// OFFCANVAS NAVIGATION MENU
+//////////////////////////////////////////////////////
+
+.offcanvas::-webkit-scrollbar {
+    width: 0px;
+}
+
+.offcanvas {
+    background-color: #048ea2;
+    bottom: -59px;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+    top: 50px;
+    right: -300px;
+    width: 300px;
+    z-index: 5000;
+    //-webkit-overflow-scrolling: touch;
+
+    @media screen and (min-width: 769px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 750px) {
+        top: 60px;
+    }
+
+    @media screen and (max-width: 750px) {
+        top: 50px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0 auto;
+    }
+
+    li {
+        border-bottom: 1px solid #048ea2;
+        padding: 0px;
+        margin: 0;
+        text-transform: uppercase;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:last-child a {
+            border-bottom: none;
+        }
+
+        a {
+            background-color: #00b9d5;
+            display: inline-block;
+            cursor: pointer;
+            color: white;
+            width: 100%;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            padding: 15px 20px 15px;
+            outline: 0;
+            font-size: 1.5em;
+        }
+
+
+        i {
+            position: relative;
+            right: -250px;
+            z-index: 0;
+        }
+
+        &.menu-item-has-children {
+            a {
+                position: absolute;
+            }
+
+            .sub-menu {
+               display: none;
+            
+                li {
+
+                    border-bottom: 1px solid #eee;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+        
+                    a {
+                        position: relative;
+                        background-color: white;
+                        color: #181818;
+                        text-transform: initial;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// OFFCANVAS OFFSET BODY DOWN BY NAVIGATION HEIGHT
+/////////////////////////////////////////////////////
+.mobile-nav-offset {
+    height: 62px;//76px;
+    display: none;
+    
+    &.fixed {
+        height: 120px;
+        display: block;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+            height: 50px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        height: 50px;
+    }
+}
+
+
+// OFFCANVAS: TRANSLATE ANIMATIONS
+/////////////////////////////////////////////////////
+.translateOffcanvas.offcanvas-menu  {
+    transition: transform 0.3s ease;
+    &.isOpen {
+        transform: translate3d(-300px, 0, 0);
+    }
+}
+
+
+// OFFCANVAS: PAGE OVERLAY ON OPEN
+/////////////////////////////////////////////////////
+.offcanvas-overlay.isOpen{
+    z-index: 1000; 
+    background-color: #181818; 
+    opacity: 0.9; 
+    height: 100%; 
+    width: 100%; 
+    overflow-y: scroll;
+    position: fixed; 
+    top: 62px;
+    bottom: 0; 
+    
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        top: 60px;
+        overflow-y: auto;
+    }
+
+    @media screen and (max-width: 750px) {
+        top: 50px;
+        overflow-y: auto;
+    }
+}
+
+
+// MOBILE NAV PULL UP HEIGHT
+/////////////////////////////////////////////////////
+.navUp {
+  top: -65px; // opposite height of .navigation .sm
+}
