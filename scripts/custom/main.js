@@ -34,7 +34,7 @@
 			});
 
 		// Dropdowns.
-			$('#nav > ul').dropotron({
+			$('#site-navigation > .menu-mainnav-container > ul').dropotron({
 				alignment: 'right'
 			});
 

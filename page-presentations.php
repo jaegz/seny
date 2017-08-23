@@ -1,11 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * Template Name: Presentations Page
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -14,8 +9,13 @@
 
 get_header(); ?>
 
+<section id="banner">
+	<h2><?php the_title(); ?></h2>
+</section>
+
 	<section id="main" class="container">
 		<div class="box">
+		THIS IS THE PRESENTATION PAGE STUFF
 		<?php
 		while ( have_posts() ) : the_post();
 
@@ -23,7 +23,6 @@ get_header(); ?>
 
 		endwhile; // End of the loop.
 		?>
-		<?php get_sidebar(); ?>
 		</div>
 	</section>
 

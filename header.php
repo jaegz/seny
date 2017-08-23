@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<header id="header" class="top">
+	<header id="header" class="top alt">
 		<h1>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 				<?php bloginfo( 'name' ); ?>
