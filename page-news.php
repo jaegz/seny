@@ -34,6 +34,9 @@ get_header(); ?>
 		}?>
 		<?php get_sidebar(); ?>
 		</div>
+		<nav class="pagination">
+			<?php pagination_bar(); ?>
+		</nav>
 	</section>
 
 <?php

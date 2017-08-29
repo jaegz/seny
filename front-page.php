@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-	<section id="banner">
+	<section id="banner" class="front-page">
 		<h2>Founded in 1944 to further the progress of the safety professional and advance the theory and practice of safety management.</h2>
 		<!--
 		<ul class="actions">

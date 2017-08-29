@@ -9,6 +9,13 @@
 
 get_header(); ?>
 
+	<section id="banner">
+		<h2><?php the_title(); ?></h2>
+		<div class="entry-meta">
+			<?php the_time('F jS, Y') ?>
+		</div>
+	</section>
+
 	<section id="main" class="container">
 		<div class="box">
 		<?php

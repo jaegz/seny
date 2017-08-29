@@ -162,3 +162,97 @@ function new_excerpt_more( $more ) {
     return '';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+
+/**
+ * Register the Presentations post type with a Dashicon.
+ *
+ * @see register_post_type()
+ */
+function conferences_create_post_type() {
+    register_post_type( 'conferences',
+        array(
+            'labels' => array(
+                'name'          => __( 'Conferences', 'textdomain' ),
+                'singular_name' => __( 'Conference', 'textdomain' )
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'menu_icon'   => 'dashicons-money',
+        )
+    );
+}
+add_action( 'init', 'conferences_create_post_type', 0 );
+
+/**
+ * Register the Member Bios post type with a Dashicon.
+ *
+ * @see register_post_type()
+ */
+// function aboutbios_create_post_type() {
+//     register_post_type( 'aboutbios',
+//         array(
+//             'labels' => array(
+//                 'name'          => __( 'About Bios', 'textdomain' ),
+//                 'singular_name' => __( 'About Bio', 'textdomain' )
+//             ),
+//             'public'      => true,
+//             'has_archive' => true,
+//             'menu_icon'   => 'dashicons-id',
+//         )
+//     );
+// }
+// add_action( 'init', 'aboutbios_create_post_type', 0 );
+
+
+/**
+ * Register the Jobs post type with a Dashicon.
+ *
+ * @see register_post_type()
+ */
+function jobs_create_post_type() {
+    register_post_type( 'jobs',
+        array(
+            'labels' => array(
+                'name'          => __( 'Job Postings', 'textdomain' ),
+                'singular_name' => __( 'Job Posting', 'textdomain' )
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'menu_icon'   => 'dashicons-groups'
+        )
+    );
+}
+add_action( 'init', 'jobs_create_post_type', 0 );
+
+
+/**
+ * Remove items from the Dashboard.
+ *
+*/
+function remove_menus(){
+  remove_menu_page( 'edit-comments.php' ); //Comments 
+}
+add_action( 'admin_menu', 'remove_menus' );
+
+
+/**
+ * Pagination Bar
+ *
+*/
+function pagination_bar() {
+    global $wp_query;
+ 
+    $total_pages = $wp_query->max_num_pages;
+ 
+    if ($total_pages > 1){
+        $current_page = max(1, get_query_var('paged'));
+ 
+        echo paginate_links(array(
+            'base' => get_pagenum_link(1) . '%_%',
+            'format' => '/page/%#%',
+            'current' => $current_page,
+            'total' => $total_pages,
+        ));
+    }
+}

@@ -10,19 +10,25 @@
 get_header(); ?>
 
 <section id="banner">
-	<h2><?php the_title(); ?></h2>
+	<h2>PROFESSIONAL DEVELOPMENT CONFERENCES</h2>
 </section>
 
 	<section id="main" class="container">
-		<div class="box">
 		<?php
 		while ( have_posts() ) : the_post();
-
-			get_template_part( 'template-parts/content-presentations', get_post_format() );
-
+			?>
+			<div class="box">
+			<?php
+			get_template_part( 'template-parts/content-excerpt--conference', get_post_format() );
+			?>
+			</div>
+			<?php
 		endwhile; // End of the loop.
 		?>
-		</div>
+
+		<nav class="pagination">
+			<?php pagination_bar(); ?>
+		</nav>
 	</section>
 
 <?php
