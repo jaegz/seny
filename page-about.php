@@ -33,7 +33,7 @@ get_header(); ?>
 			<div class="row">
 				<?php while ( have_rows('group_members') ): the_row(); ?>
 
-				<div class="6u 12u(mobilep)">
+				<div class="6u 12u(mobilep) bio">
 					<img src="<?php the_sub_field('member_image');?>" alt="<?php the_sub_field('member_name'); ?> Headshot">
 					<h4><?php the_sub_field('member_name'); ?></h4>
 					<b><?php the_sub_field('member_position'); ?></b>

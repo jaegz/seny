@@ -38,3 +38,18 @@ article.post {
 	}
 }
 
+.bio {
+
+	h4 {
+		font-weight: bold;
+	}
+	img {
+		float: left;
+		margin: 0px 10px 20px 0;
+	}
+
+	a:before {
+		content: '\2709';
+		margin-right: 5px;
+	}
+}

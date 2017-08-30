@@ -14,29 +14,33 @@ get_header(); ?>
 	</section>
 
 	<section id="main" class="container">
-		<div class="box">		
-		<?php
+		<div class="box two-col">
+		<div class="main-col">		
+			<?php
 
-		$news_query = new WP_Query(array(
-			'post_type' => 'post',
-			'post_status' => 'publish',
-			'orderby' => 'date'
-		));
+			$news_query = new WP_Query(array(
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'orderby' => 'date'
+			));
 
-		if ( $news_query->have_posts() ) {
-			while ( $news_query->have_posts() ) {
-				$news_query->the_post();
-				get_template_part( 'template-parts/content-excerpt', get_post_format() );
-			}
-			wp_reset_postdata();
-		} else {
-			get_template_part( 'template-parts/content', 'none' );
-		}?>
-		<?php get_sidebar(); ?>
+			if ( $news_query->have_posts() ) {
+				while ( $news_query->have_posts() ) {
+					$news_query->the_post();
+					get_template_part( 'template-parts/content-excerpt', get_post_format() );
+				}
+				wp_reset_postdata();
+			} else {
+				get_template_part( 'template-parts/content', 'none' );
+			}?>
+			<nav class="pagination">
+				<?php pagination_bar(); ?>
+			</nav>
 		</div>
-		<nav class="pagination">
-			<?php pagination_bar(); ?>
-		</nav>
+		<aside>
+			<?php get_sidebar(); ?>
+		</div>
+		
 	</section>
 
 <?php
