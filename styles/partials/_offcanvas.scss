@@ -1,169 +1,164 @@
-// OFFCANVAS NAVIGATION MENU
-//////////////////////////////////////////////////////
+/* Off-Canvas Navigation */
+#navPanel, #navButton {
+		display: none;
+	}
 
-.offcanvas::-webkit-scrollbar {
-    width: 0px;
-}
+	@media screen and (max-width: 840px) {
+	#page-wrapper {
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-transition: -moz-transform 0.5s ease;
+		-webkit-transition: -webkit-transform 0.5s ease;
+		-ms-transition: -ms-transform 0.5s ease;
+		transition: transform 0.5s ease;
+		padding-bottom: 1px;
+	}
 
-.offcanvas {
-    background-color: #048ea2;
-    bottom: -59px;
-    height: 100%;
-    overflow-y: scroll;
-    position: fixed;
-    top: 50px;
-    right: -300px;
-    width: 300px;
-    z-index: 5000;
-    //-webkit-overflow-scrolling: touch;
+	#navButton {
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-transition: -moz-transform 0.5s ease;
+		-webkit-transition: -webkit-transform 0.5s ease;
+		-ms-transition: -ms-transform 0.5s ease;
+		transition: transform 0.5s ease;
+		display: block;
+		height: 44px;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10001;
 
-    @media screen and (min-width: 769px) {
-        display: none;
-    }
+		.toggle {
+			text-decoration: none;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			border: 0;
+			outline: 0;
 
-    @media screen and (max-width: 750px) {
-        top: 60px;
-    }
-
-    @media screen and (max-width: 750px) {
-        top: 50px;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0px;
-        margin: 0 auto;
-    }
-
-    li {
-        border-bottom: 1px solid #048ea2;
-        padding: 0px;
-        margin: 0;
-        text-transform: uppercase;
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        &:last-child a {
-            border-bottom: none;
-        }
-
-        a {
-            background-color: #00b9d5;
-            display: inline-block;
-            cursor: pointer;
-            color: white;
-            width: 100%;
-            z-index: 1;
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            padding: 15px 20px 15px;
-            outline: 0;
-            font-size: 1.5em;
-        }
-
-
-        i {
-            position: relative;
-            right: -250px;
-            z-index: 0;
-        }
-
-        &.menu-item-has-children {
-            a {
-                position: absolute;
-            }
-
-            .sub-menu {
-               display: none;
-            
-                li {
-
-                    border-bottom: 1px solid #eee;
-
-                    &:last-child {
-                        border-bottom: none;
-                    }
-        
-                    a {
-                        position: relative;
-                        background-color: white;
-                        color: #181818;
-                        text-transform: initial;
-                        cursor: pointer;
-                    }
-                }
-            }
-        }
-    }
-}
+			&:before {
+				-moz-osx-font-smoothing: grayscale;
+				-webkit-font-smoothing: antialiased;
+				font-family: FontAwesome;
+				font-style: normal;
+				font-weight: normal;
+				text-transform: none !important;
+				background: rgba(192, 192, 192, 0.75);
+				border-radius: 6px;
+				color: #fff;
+				content: '\f0c9';
+				display: block;
+				font-size: 16px;
+				height: 2.25em;
+				left: 0.5em;
+				line-height: 2.25em;
+				position: absolute;
+				text-align: center;
+				top: 0.5em;
+				width: 3.5em;
+			}
+		}
+	}
 
 
+	#navPanel {
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-transform: translateX(-275px);
+		-webkit-transform: translateX(-275px);
+		-ms-transform: translateX(-275px);
+		transform: translateX(-275px);
+		-moz-transition: -moz-transform 0.5s ease;
+		-webkit-transition: -webkit-transform 0.5s ease;
+		-ms-transition: -ms-transform 0.5s ease;
+		transition: transform 0.5s ease;
+		display: block;
+		height: 100%;
+		left: 0;
+		overflow-y: auto;
+		position: fixed;
+		top: 0;
+		width: 275px;
+		z-index: 10002;
+		background: #2b2b2b;
+		color: #bbb;
 
-// OFFCANVAS OFFSET BODY DOWN BY NAVIGATION HEIGHT
-/////////////////////////////////////////////////////
-.mobile-nav-offset {
-    height: 62px;//76px;
-    display: none;
-    
-    &.fixed {
-        height: 120px;
-        display: block;
+		.link,
+		.menu-item a {
+			border-bottom: 0;
+			border-top: solid 1px rgba(255, 255, 255, 0.05);
+			color: #bbb;
+			display: block;
+			height: 44px;
+			line-height: 44px;
+			padding: 0 1em 0 1em;
+			text-decoration: none;
 
-        @media screen and (max-width: 768px) {
-            display: block;
-            height: 50px;
-        }
-    }
+			&:first-child {
+				border-top: 0;
+			}
 
-    @media screen and (max-width: 768px) {
-        display: block;
-        height: 50px;
-    }
-}
+			&.depth-0 {
+				color: #fff;
+			}
 
+			.indent-1 {
+				display: inline-block;
+				width: 1em;
+			}
 
-// OFFCANVAS: TRANSLATE ANIMATIONS
-/////////////////////////////////////////////////////
-.translateOffcanvas.offcanvas-menu  {
-    transition: transform 0.3s ease;
-    &.isOpen {
-        transform: translate3d(-300px, 0, 0);
-    }
-}
+			.indent-2 {
+				display: inline-block;
+				width: 2em;
+			}
 
+			.indent-3 {
+				display: inline-block;
+				width: 3em;
+			}
 
-// OFFCANVAS: PAGE OVERLAY ON OPEN
-/////////////////////////////////////////////////////
-.offcanvas-overlay.isOpen{
-    z-index: 1000; 
-    background-color: #181818; 
-    opacity: 0.9; 
-    height: 100%; 
-    width: 100%; 
-    overflow-y: scroll;
-    position: fixed; 
-    top: 62px;
-    bottom: 0; 
-    
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
+			.indent-4 {
+				display: inline-block;
+				width: 4em;
+			}
 
-    @media screen and (max-width: 768px) {
-        top: 60px;
-        overflow-y: auto;
-    }
-
-    @media screen and (max-width: 750px) {
-        top: 50px;
-        overflow-y: auto;
-    }
-}
+			.indent-5 {
+				display: inline-block;
+				width: 5em;
+			}
+		}
+	}
 
 
-// MOBILE NAV PULL UP HEIGHT
-/////////////////////////////////////////////////////
-.navUp {
-  top: -65px; // opposite height of .navigation .sm
+	body.navPanel-visible {
+		#page-wrapper {
+			-moz-transform: translateX(275px);
+			-webkit-transform: translateX(275px);
+			-ms-transform: translateX(275px);
+			transform: translateX(275px);
+		}	
+
+		#navButton {
+			-moz-transform: translateX(275px);
+			-webkit-transform: translateX(275px);
+			-ms-transform: translateX(275px);
+			transform: translateX(275px);
+		}
+
+		#navPanel {
+			-moz-transform: translateX(0);
+			-webkit-transform: translateX(0);
+			-ms-transform: translateX(0);
+			transform: translateX(0);
+		}
+	}
 }

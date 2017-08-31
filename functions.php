@@ -16,14 +16,6 @@ if ( ! function_exists( 'safetyexecsny_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function safetyexecsny_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on safetyexecsny, use a find and replace
-	 * to change 'safetyexecsny' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'safetyexecsny', get_template_directory() . '/languages' );
-
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -37,7 +29,6 @@ function safetyexecsny_setup() {
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
-	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
@@ -59,45 +50,14 @@ function safetyexecsny_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'safetyexecsny_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/**
-	 * Add support for core custom logo.
-	 *
-	 * @link https://codex.wordpress.org/Theme_Logo
-	 */
-	add_theme_support( 'custom-logo', array(
-		'height'      => 250,
-		'width'       => 250,
-		'flex-width'  => true,
-		'flex-height' => true,
-	) );
 }
 endif;
 add_action( 'after_setup_theme', 'safetyexecsny_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function safetyexecsny_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'safetyexecsny_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'safetyexecsny_content_width', 0 );
-
-/**
  * Register widget area.
- *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function safetyexecsny_widgets_init() {
@@ -118,6 +78,7 @@ add_action( 'widgets_init', 'safetyexecsny_widgets_init' );
  */
 function safetyexecsny_scripts() {
 	wp_enqueue_style( 'safetyexecsny-style', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'safetyexecsny-style-fonts', get_template_directory_uri() . '/styles/font-awesome.min.css', true );
 
 	wp_enqueue_script( 'safetyexecsny-jquery', get_template_directory_uri() . '/scripts/vendor/jquery.min.js', array(), '20170819', true );	
 	wp_enqueue_script( 'safetyexecsny-dropotron', get_template_directory_uri() . '/scripts/vendor/jquery.dropotron.min.js', array(), '20170819', true );
@@ -132,32 +93,59 @@ function safetyexecsny_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'safetyexecsny_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
+ * Register Custom Post Types
+ * @see register_post_type()
+ **/
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
+// Conferences
+function register_conferences_post_type() {
+    $conferences_labels = array(
+        'name'          => 'Conferences',
+        'singular_name' => 'Conference',
+        'menu_name'     => 'Conferences'
+    );
+    
+    $conferences_args = array(
+        'labels'          => $conferences_labels,
+        'public'          => true,
+        'capability_type' => 'post',
+        'has_archive'     => true,
+        'menu_icon'       => 'dashicons-money',
+        'rewrite'         => array('slug' => 'conferences')
+    );
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
+    register_post_type( 'seny_conferences', $conferences_args);
+}
+add_action( 'init', 'register_conferences_post_type');
 
 
+// Jobs
+function register_jobs_post_type() {
+    $jobs_labels = array(
+        'name'          => 'Job Postings',
+        'singular_name' => 'Job Posting',
+        'menu_name'     => 'Job Postings'
+    );
+
+    $jobs_args = array(
+        'labels'          => $jobs_labels,
+        'public'          => true,
+        'capability_type' => 'post',
+        'has_archive'     => true,
+        'menu_icon'       => 'dashicons-groups',
+        'rewrite'         => array('slug' => 'job-openings')
+    );
+
+    register_post_type( 'seny_jobs', $jobs_args);
+}
+add_action( 'init', 'register_jobs_post_type');
+
+
+/*
+* Remove Excerpt Read More [...]
+*/
 function new_excerpt_more( $more ) {
     return '';
 }
@@ -165,80 +153,7 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 
 /**
- * Register the Presentations post type with a Dashicon.
- *
- * @see register_post_type()
- */
-function conferences_create_post_type() {
-    register_post_type( 'conferences',
-        array(
-            'labels' => array(
-                'name'          => __( 'Conferences', 'textdomain' ),
-                'singular_name' => __( 'Conference', 'textdomain' )
-            ),
-            'public'      => true,
-            'has_archive' => true,
-            'menu_icon'   => 'dashicons-money',
-        )
-    );
-}
-add_action( 'init', 'conferences_create_post_type', 0 );
-
-/**
- * Register the Member Bios post type with a Dashicon.
- *
- * @see register_post_type()
- */
-// function aboutbios_create_post_type() {
-//     register_post_type( 'aboutbios',
-//         array(
-//             'labels' => array(
-//                 'name'          => __( 'About Bios', 'textdomain' ),
-//                 'singular_name' => __( 'About Bio', 'textdomain' )
-//             ),
-//             'public'      => true,
-//             'has_archive' => true,
-//             'menu_icon'   => 'dashicons-id',
-//         )
-//     );
-// }
-// add_action( 'init', 'aboutbios_create_post_type', 0 );
-
-
-/**
- * Register the Jobs post type with a Dashicon.
- *
- * @see register_post_type()
- */
-function jobs_create_post_type() {
-    register_post_type( 'jobs',
-        array(
-            'labels' => array(
-                'name'          => __( 'Job Postings', 'textdomain' ),
-                'singular_name' => __( 'Job Posting', 'textdomain' )
-            ),
-            'public'      => true,
-            'has_archive' => true,
-            'menu_icon'   => 'dashicons-groups'
-        )
-    );
-}
-add_action( 'init', 'jobs_create_post_type', 0 );
-
-
-/**
- * Remove items from the Dashboard.
- *
-*/
-function remove_menus(){
-  remove_menu_page( 'edit-comments.php' ); //Comments 
-}
-add_action( 'admin_menu', 'remove_menus' );
-
-
-/**
- * Pagination Bar
- *
+* Pagination Bar
 */
 function pagination_bar() {
     global $wp_query;
@@ -258,6 +173,13 @@ function pagination_bar() {
 }
 
 /**
-* Remove useless widgets
+* Dashboard Cleanup
 **/
 
+// Remove sidebar menu items
+function remove_menus(){
+  remove_menu_page( 'edit-comments.php' ); //Comments 
+}
+add_action( 'admin_menu', 'remove_menus' );
+
+// Remove Appearance > Widgets items

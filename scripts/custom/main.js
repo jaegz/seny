@@ -41,23 +41,36 @@
 		// Off-Canvas Navigation.
 
 			// Navigation Button.
-				$(
-					'<div id="navButton">' +
-						'<a href="#navPanel" class="toggle"></a>' +
-					'</div>'
-				)
-					.appendTo($body);
+				// $(
+				// 	'<div id="navButton">' +
+				// 		'<a href="#navPanel" class="toggle"></a>' +
+				// 	'</div>'
+				// )
+				// 	.appendTo($body);
 
 			// Navigation Panel.
-				$(
-					'<div id="navPanel">' +
-						'<nav>' +
-							$('#nav').navList() +
-						'</nav>' +
-					'</div>'
-				)
-					.appendTo($body)
-					.panel({
+				// $(
+				// 	'<div id="navPanel">' +
+				// 		'<nav>' +
+				// 			$('#nav').navList() +
+				// 		'</nav>' +
+				// 	'</div>'
+				// )
+				// 	.appendTo($body)
+				// 	.panel({
+				// 		delay: 500,
+				// 		hideOnClick: true,
+				// 		hideOnSwipe: true,
+				// 		resetScroll: true,
+				// 		resetForms: true,
+				// 		side: 'left',
+				// 		target: $body,
+				// 		visibleClass: 'navPanel-visible'
+				// 	});
+
+			// Manually Placed Navigation Button and Navigation Panel in footer.php
+			// This will allow for the wp_nav_menu to be called and dynamically generate the menu
+			$('#navPanel').panel({
 						delay: 500,
 						hideOnClick: true,
 						hideOnSwipe: true,
@@ -67,6 +80,7 @@
 						target: $body,
 						visibleClass: 'navPanel-visible'
 					});
+
 
 			// Fix: Remove navPanel transitions on WP<10 (poor/buggy performance).
 				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
