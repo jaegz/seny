@@ -112,7 +112,7 @@ function register_conferences_post_type() {
         'public'          => true,
         'capability_type' => 'post',
         'has_archive'     => true,
-        'menu_icon'       => 'dashicons-money',
+        'menu_icon'       => 'dashicons-images-alt2',
         'rewrite'         => array('slug' => 'conferences')
     );
 
@@ -120,6 +120,26 @@ function register_conferences_post_type() {
 }
 add_action( 'init', 'register_conferences_post_type');
 
+// Speaeker Bios
+function register_speakerbio_post_type() {
+    $speakerbio_labels = array(
+        'name'          => 'Speaker Bios',
+        'singular_name' => 'Speaker Bio',
+        'menu_name'     => 'Speaker Bios'
+    );
+
+    $speakerbio_args = array(
+        'labels'          => $speakerbio_labels,
+        'public'          => true,
+        'capability_type' => 'post',
+        'has_archive'     => true,
+        'menu_icon'       => 'dashicons-groups',
+        'rewrite'         => array('slug' => 'speaker-bio')
+    );
+
+    register_post_type( 'seny_speakerbios', $speakerbio_args);
+}
+add_action( 'init', 'register_speakerbio_post_type');
 
 // Jobs
 function register_jobs_post_type() {
@@ -134,13 +154,15 @@ function register_jobs_post_type() {
         'public'          => true,
         'capability_type' => 'post',
         'has_archive'     => true,
-        'menu_icon'       => 'dashicons-groups',
+        'menu_icon'       => 'dashicons-id',
         'rewrite'         => array('slug' => 'job-openings')
     );
 
     register_post_type( 'seny_jobs', $jobs_args);
 }
 add_action( 'init', 'register_jobs_post_type');
+
+
 
 
 /*

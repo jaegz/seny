@@ -16,7 +16,7 @@ get_header(); ?>
 	<section id="main" class="container">
 			<?php
 			// while have custom posts
-			$args = array( 'post_type' => 'jobs');
+			$args = array( 'post_type' => 'seny_jobs');
 			$loop = new WP_Query( $args );
 			
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>

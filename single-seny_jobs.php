@@ -18,10 +18,9 @@ get_header(); ?>
 
 	<section id="main" class="container">
 		<div class="box">
-			<?php echo get_field('job_description'); ?>
+			<?php echo get_field('job_details'); ?>
 		</div>
 	</section>
 
 <?php
-//get_sidebar();
 get_footer();
