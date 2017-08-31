@@ -256,3 +256,8 @@ function pagination_bar() {
         ));
     }
 }
+
+/**
+* Remove useless widgets
+**/
+

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Conferences Archive
+ * Template Name: Job Postings Archive
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -16,7 +16,7 @@ get_header(); ?>
 	<section id="main" class="container">
 			<?php
 			// while have custom posts
-			$args = array( 'post_type' => 'conferences', 'posts_per_page' => 10 );
+			$args = array( 'post_type' => 'jobs');
 			$loop = new WP_Query( $args );
 			
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>
@@ -27,13 +27,6 @@ get_header(); ?>
 		  				<?php the_title(); ?>
 		  			</a>
 		  		</h3>
-		  		<?php if( have_rows('all_presentations') ): ?>
-		    		<?php while ( have_rows('all_presentations') ) : the_row(); ?>
-	        			<p><?php the_sub_field('name'); ?></p>
-					<?php endwhile; ?>
-				<?php else : ?>
-		    	
-				<?php endif; ?>
 			</div>
 			<?php endwhile; ?>
 
