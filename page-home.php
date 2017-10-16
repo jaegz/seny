@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<section id="banner" class="front-page">
-		<h2>Founded in 1944 to further the progress of the safety professional and advance the theory and practice of safety management.</h2>
+		<h2>WOWNEATFounded in 1944 to further the progress of the safety professional and advance the theory and practice of safety management.</h2>
 		<!--
 		<ul class="actions">
 			<li><a href="#" class="button special">Sign Up</a></li>
@@ -27,37 +27,26 @@ get_header(); ?>
 				</header>
 
 				<?php
-                if ( have_posts() ) : ?>
+                    $home_query = new WP_Query();
+                    if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+                    echo($home_query);
+                ?>
                     <header>
                         <h1 class="page-title screen-reader-text">
                             <?php single_post_title(); ?>
                         </h1>
                     </header>
-
-					<?php
-					/* Start the Loop */
-					while ( have_posts() ) : the_post();
-
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content-excerpt', get_post_format() );
-
-					endwhile;
-
-					the_posts_navigation();
-
-				else :
-
-					get_template_part( 'template-parts/content', 'none' );
-
+                    <?php
+                        get_template_part( 'template-parts/content-excerpt', get_post_format() );
+                        the_posts_navigation();
+                    else :
+					    get_template_part( 'template-parts/content', 'none' );
 				endif; ?>
 			</div>
 
 			<aside>
-				<?php get_sidebar() ?>
+				<?php get_sidebar(); ?>
 			</aside>
 		</section>
 

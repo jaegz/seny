@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<section id="banner" class="front-page">
-		<h2>Founded in 1944 to further the progress of the safety professional and advance the theory and practice of safety management.</h2>
+		<h2><?php the_field('home_title');?></h2>
 		<!--
 		<ul class="actions">
 			<li><a href="#" class="button special">Sign Up</a></li>
@@ -32,37 +32,38 @@ get_header(); ?>
 				</header>
 
 				<?php
-				if ( have_posts() ) :
 
-					if ( is_home() && ! is_front_page() ) : ?>
-						<header>
-							<h1 class="page-title screen-reader-text">
-								<?php single_post_title(); ?>	
-							</h1>
-						</header>
+				$home_query = new WP_Query('posts_per_page=3');
 
+				if ( $home_query->have_posts() ) :
+
+					while ( $home_query->have_posts() ) :
+
+						$home_query->the_post();?>
+
+						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+							<header class="entry-header">
+								<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+
+								if ( 'post' === get_post_type() ) : ?>
+									<div class="entry-meta">
+									<?php the_time('F jS, Y') ?>
+								</div><!-- .entry-meta -->
+								<?php
+								endif; ?>
+							</header><!-- .entry-header -->
+
+							<div class="entry-content">
+								<?php the_excerpt(); ?>
+							</div><!-- .entry-content -->
+
+							<footer class="entry-footer">
+								<a href="<?php echo get_permalink(); ?>"> Read More...</a>
+							</footer><!-- .entry-footer -->
+						</article><!-- #post-<?php the_ID(); ?> -->
 					<?php
-					endif;
-
-					/* Start the Loop */
-					while ( have_posts() ) : the_post();
-
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content-excerpt', get_post_format() );
-
 					endwhile;
-
-					the_posts_navigation();
-
-				else :
-
-					get_template_part( 'template-parts/content', 'none' );
-
-				endif; ?>
+				endif;?>
 			</div>
 
 			<aside>
@@ -73,8 +74,13 @@ get_header(); ?>
 		<section class="box">
 			<header>
 				<h2>Who We Are</h2>
+				<h2><?php the_field('bottom_title'); ?></h2>
 			</header>
+			<img src="<?php the_field('bottom_img_url');?>" alt="<?php the_field('bottom_img_alt');?>">
 			<img src="http://nj.assewp.org/wp-content/uploads/sites/110/2017/07/Safety2017.png" alt="" style="width:100%;">
+			<div>
+				<?php the_field('botton_content');?>
+			</div>
 			<p><br>Safety Executives of New York, Inc. (SENY) is a non-profit organization whose objective is to further the progress of the safety professional and advance the theory and practice of safety management.</p>
 			<p>SENY was founded in 1944. Membership is limited to the senior safety manager for his/her organization in the metropolitan New York area. Current members represent organizations in a variety of endeavors including manufacturing, retail, construction, public service, financial services and insurance. As the responsibilities of the safety professional have expanded over the years into health, environmental and security, so has SENY's focus to meet our member’s needs.</p>
 			<p>Our meetings include the annual Professional Development Conference, held in the spring of each year. The Professional Development Conference is open to the public and is attended by safety, risk managment, security and operating management personnel.</p>
