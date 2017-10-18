@@ -28,12 +28,18 @@ get_header(); ?>
     				<h3>
     					<?php the_sub_field('presentation_title'); ?>
     				</h3>
-    				<a href="<?php the_sub_field('presentation_speaker_bio'); ?>">
-    					<?php the_sub_field('presentation_speaker'); ?>
-    				</a>
+					<?php 
+						$bio = get_sub_field('presentation_speaker_bio');
+    					if( $bio ): ?>
+		    				<a href="<?php echo get_permalink($bio->ID);?>">
+    							<?php the_sub_field('presentation_speaker'); ?>
+    						</a>
+    					<?php else: ?>
+    							<?php the_sub_field('presentation_speaker'); ?>
+    					<?php endif; ?>
 					<p>
    						<?php the_sub_field('presentation_description'); ?>
-   						<a href="<?php the_sub_field('presentation_download_link'); ?>" >Download Slideshow</a>
+   						<a class="button special small" href="<?php the_sub_field('presentation_download_link'); ?>" >Download Slideshow</a>
 					</p>    					
 				</div>
 				<?php

@@ -9,12 +9,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if lte IE 8]><script src="scritps/vendor/html5shiv.js"></script><![endif]-->
-<link rel="profile" href="http://gmpg.org/xfn/11">
 <?php wp_head(); ?>
 <!--[if lte IE 8]><link rel="stylesheet" href="styles/ie8.css" /><![endif]-->
 </head>
 
+<?php if (is_home()) { ?>
+<body id="home">
+<?php } else { ?>
 <body>
+<?php } ?>
 	<header id="header" class="top alt">
 		<h1>
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">

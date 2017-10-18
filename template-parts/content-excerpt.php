@@ -26,6 +26,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<a href="<?php echo get_permalink(); ?>"> Read More...</a>
+		<a class="button special small" href="<?php echo get_permalink(); ?>"> Read More...</a>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

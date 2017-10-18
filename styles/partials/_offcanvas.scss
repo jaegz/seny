@@ -1,9 +1,9 @@
 /* Off-Canvas Navigation */
 #navPanel, #navButton {
 		display: none;
-	}
+}
 
-	@media screen and (max-width: 840px) {
+@media screen and (max-width: 840px) {
 	#page-wrapper {
 		-moz-backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
@@ -159,6 +159,18 @@
 			-webkit-transform: translateX(0);
 			-ms-transform: translateX(0);
 			transform: translateX(0);
+		}
+	}
+}
+
+#navButton {
+	header {
+		h2 {
+			color: white;
+			font-size: 1.1em;
+			position: relative;
+			top: 1em;
+			left: 5em;
 		}
 	}
 }

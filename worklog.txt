@@ -26,3 +26,30 @@ event espresso
 form plugin
 slick carousel
 
+END 5:35
+
+
+8/19/17
+5:30pm
+
+finish header, navigation, homepage, and footer
+
+*** 
+TO DO
+remember to check that the dist folder has the correct paths for html5shiv and ie8.css
+****
+
+find commented out code and remove related styles
+
+
+stylesheet is missing error
+style.css must be present in the root directory
+
+8/28
+2 hrs
+8/29
+3hrs
+
+8/30
+5hrs
+

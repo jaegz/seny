@@ -20,6 +20,9 @@
 	</footer>
 	<div id="navButton">
 		<a href="#navPanel" class="toggle"></a>
+		<header>
+			<h2>Safety Executives of New York</h2>
+		</header>
 	</div>
 	<div id="navPanel">
 		<nav>
