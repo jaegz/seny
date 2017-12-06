@@ -23,7 +23,7 @@ get_header(); ?>
 		
 	while ( $conf_loop->have_posts() ) : $conf_loop->the_post(); ?>
 		<div class="box">
-	  		<span><?php the_time('F jS, Y') ?></span>
+	  		<span><?php echo get_field('conference_date'); ?></span>
 	  		<h3>
 	  			<a href="<?php the_permalink(); ?>">
 	  				<?php the_title(); ?>
