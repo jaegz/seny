@@ -18,7 +18,7 @@
 
 	&.front-page {
 		padding: 10em 0 18em 0;
-		background-position: top left, center center;
+		//background-position: top left, center center;
 
 		h2 {
 			text-align: left;
@@ -36,6 +36,7 @@
 		width: 74%;
 		margin: 0 auto;
 		text-align: center;
+		text-shadow: 1px 1px 1px #151515;
 		//font-weight: bold;
 
 		@media (min-width: 1280px) {
