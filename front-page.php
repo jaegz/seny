@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<section id="banner" class="front-page">
-		<h2><?php the_field('home_title');?></h2>
+		<h2><?php the_field('banner_text');?></h2>
 		<!--
 		<ul class="actions">
 			<li><a href="#" class="button special">Sign Up</a></li>
@@ -58,7 +58,7 @@ get_header(); ?>
 							</div><!-- .entry-content -->
 
 							<footer class="entry-footer">
-								<a href="<?php echo get_permalink(); ?>"> Read More...</a>
+								<a class="button special small" href="<?php echo get_permalink(); ?>"> Read More...</a>
 							</footer><!-- .entry-footer -->
 						</article><!-- #post-<?php the_ID(); ?> -->
 					<?php
@@ -73,13 +73,11 @@ get_header(); ?>
 
 		<section class="box">
 			<header>
-				<h2>Who We Are</h2>
-				<h2><?php the_field('bottom_title'); ?></h2>
+				<h2><?php the_field('bottom_box_title'); ?></h2>
 			</header>
-			<img src="<?php the_field('bottom_img_url');?>" alt="<?php the_field('bottom_img_alt');?>">
-			<img src="http://nj.assewp.org/wp-content/uploads/sites/110/2017/07/Safety2017.png" alt="" style="width:100%;">
+			<img class="full-width" src="<?php the_field('bottom_box_image');?>" alt="<?php the_field('bottom_box_title');?>">
 			<div>
-				<?php the_field('botton_content');?>
+				<?php the_field('botton_box_content');?>
 			</div>
 			<p><br>Safety Executives of New York, Inc. (SENY) is a non-profit organization whose objective is to further the progress of the safety professional and advance the theory and practice of safety management.</p>
 			<p>SENY was founded in 1944. Membership is limited to the senior safety manager for his/her organization in the metropolitan New York area. Current members represent organizations in a variety of endeavors including manufacturing, retail, construction, public service, financial services and insurance. As the responsibilities of the safety professional have expanded over the years into health, environmental and security, so has SENY's focus to meet our member’s needs.</p>
