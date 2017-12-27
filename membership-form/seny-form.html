@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SENY FORM</title>
+    <link rel='stylesheet' id='safetyexecsny-style-css' href='https://www.safetyexecutivesny.org/wp-content/themes/safetyexecsny/style.css?ver=4.8.4'
+        type='text/css' media='all' />
+</head>
+<style>
+    /* validation icons */
+    @font-face {
+        font-family: 'icomoon';
+        src:  url('fonts/icomoon.eot?nmh8q7');
+        src:  url('fonts/icomoon.eot?nmh8q7#iefix') format('embedded-opentype'),
+            url('fonts/icomoon.ttf?nmh8q7') format('truetype'),
+            url('fonts/icomoon.woff?nmh8q7') format('woff'),
+            url('fonts/icomoon.svg?nmh8q7#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    [class^="icon-"],
+    [class*=" icon-"],
+    .parsley-errors-list li:before
+     {
+        /* use !important to prevent issues with browser extensions that change fonts */
+        font-family: 'icomoon' !important;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .icon-check-circle:before {
+        content: "\e900";
+    }
+    .icon-x-circle:before {
+        content: "\e904";
+    }
+
+    input.parsley-success,
+    select.parsley-success,
+    textarea.parsley-success {
+        color: #468847;
+        background-color: #DFF0D8;
+        border: 1px solid #D6E9C6;
+    }
+
+    input.parsley-error,
+    select.parsley-error,
+    textarea.parsley-error {
+        color: #B94A48;
+        background-color: #F2DEDE;
+        border: 1px solid #EED3D7;
+    }
+
+    .parsley-errors-list {
+        margin: 2px 0 3px;
+        padding: 0;
+        list-style-type: none;
+        font-size: 0.9em;
+        line-height: 0.9em;
+        opacity: 0;
+
+        transition: all .3s ease-in;
+        -o-transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -webkit-transition: all .3s ease-in;
+    }
+
+    .parsley-errors-list.filled {
+        opacity: 1;
+    }
+
+    *{font-family: sans-serif;}
+
+    label {
+        font-weight: bold;
+        display: block;
+        font-size: 100%;
+        margin-bottom: 5px;
+        margin-top: 1em;
+    }
+
+    input,
+    select {
+        /* /margin-top: 1em; */
+    }
+
+    .form-section {
+        padding-left: 15px;
+        border-left: 2px solid #FF851B;
+        display: none;
+    }
+    .form-section.current {
+        display: inherit;
+    }
+    .btn-info, .btn-default {
+        margin-top: 10px;
+    }
+
+    .parsley-errors-list.filled {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .parsley-errors-list {
+        color: red;
+    }
+    .parsley-errors-list li:before {
+        content: "\e904";
+        margin-right: 5px;
+    }
+    .progress-bar {
+        margin-top: 3em;
+        border: solid 1px #e5e5e5;
+        color: white;
+    }
+    .bar-25 {
+        background-color: rgb(85, 175, 85);
+        width: 25%;
+        padding-left: 1em;
+    }
+    .bar-50 {
+        background-color: rgb(85, 175, 85);
+        width: 50%;
+        padding-left: 1em;
+    }
+    .bar-75 {
+        background-color: rgb(85, 175, 85);
+        width: 75%;
+        padding-left: 1em;
+    }
+    .bar-100 {
+        background-color: rgb(85, 175, 85);
+        width: 100%;
+        padding-left: 1em;
+    }
+
+    #form h4,
+    h4 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 2em;
+    }
+
+    .form-navigation {
+        margin-top: 1em;
+    }
+    textarea {
+        appearance: none;
+        background: #f8f8f8;
+        border-radius: 6px;
+        border: solid 1px #e5e5e5;
+        color: inherit;
+        display: block;
+        outline: 0;
+        padding: 0 1em;
+        text-decoration: none;
+        width: 100%;
+    }
+</style>
+<body>
+    <!--
+        BUILD PROCESS
+        `````````````
+        1. Build Form
+        2. Front End Validation
+        3. AJAX
+        4. Back End Validation
+        5. Test File Attachments
+        6. Other Security / Spam Resistance?
+        7. ACF Integration?? - That would take 2 more hours
+    -->
+    <section id="main" class="container">
+    <div class="box">
+        <h4>Eligibility Requirements for SENY Membership</h4>
+        <ul>
+            <li>Must work in the NY/Metro Area.</li>
+            <li>Must work in the EH&amp;S Field</li>
+            <li>Must be highest ranking EH&amp;S officer of the company for the Metro Area.</li>
+            <li>One member per Parent Corporation. If there is a safety director of a subsidiary corporation who has independent direction
+                of a subsidiary program, such person may become a member, in addition to the safety director, of the parent.</li>
+        </ul>
+        <hr>
+        <p>
+            <small>All fields are required.</small>
+        </p>
+
+        <form id="form" action="">
+            <div class="form-section">
+                <h4>General Information</h4>
+                <label for="first-name">First Name</label>
+                <input type="text" name="first-name" required maxlength="42" data-parsley-trigger="focusout" data-parsley-error-message="Please enter your first name"
+                />
+                <label for="last-name">Last Name</label>
+                <input type="text" name="last-name" required maxlength="42" data-parsley-trigger="focusout" data-parsley-error-message="Please enter your last name"
+                />
+                <label for="phone-number">Phone Number (555-555-5555)</label>
+                <input type="text" name="phone-number" required maxlength="16" data-parsley-trigger="focusout" data-parsley-pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"
+                    data-parsley-error-message="Please enter a valid phone number" />
+                <label for="email">Email Address</label>
+                <input type="email" name="email" required maxlength="42" data-parsley-trigger="focusout" data-parsley-error-message="Please enter a valid email"
+                />
+                <div class="progress-bar">
+                    <div class="bar-25">step 1 of 4</div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h4>Employment Information</h4>
+                </p>
+                <label for="employer">Employer</label>
+                <input type="text" name="employer" required maxlength="100" data-parsley-trigger="change" data-parsley-error-message="Please enter your employer"
+                />
+                <label for="business-address">Business Address</label>
+                <input type="text" name="business-address" required maxlength="100" data-parsley-trigger="change" data-parsley-error-message="Please enter your business address"
+                />
+                <label for="business-city">Business City</label>
+                <input type="text" name="business-city" required maxlength="42" data-parsley-trigger="change" data-parsley-error-message="Please enter your business city"
+                />
+                <label for="business-state">Business State</label>
+                <select name="business-state" required data-parsley-trigger="change" data-parsley-error-message="Please choose your business state">
+                    <option value="" disabled="" selected="" hidden="">Select a US State...</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+                <label for="business-zip">Business Zip</label>
+                <input type="text" name="business-zip" required maxlength="10" data-parsley-trigger="change" data-parsley-type="digits" data-parsley-error-message="Please enter your business zip"
+                />
+                <div class="progress-bar">
+                    <div class="bar-50">step 2 of 4</div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h4>Current Position</h4>
+                </p>
+                <label for="title">Title</label>
+                <input type="text" name="title" required maxlength="42" data-parsley-trigger="change" data-parsley-error-message="Please enter your title"/>
+                <label for="time-current">Length of time in current position</label>
+                <input type="text" name="time-current" required maxlength="42" data-parsley-trigger="change" data-parsley-error-message="Please enter the length of time in current position"/>
+                <label for="time-ehs">Length of time in the EH&amp;S profession</label>
+                <input type="text" name="time-ehs" required maxlength="42" data-parsley-trigger="change" data-parsley-error-message="Please enter the length of time in the EH&amp;S profession"/>
+                <label for="report">Title of person to whom you report</label>
+                <input type="text" name="report" required maxlength="42" data-parsley-trigger="change" data-parsley-error-message="Please enter the title of the person whom you report"/>
+                <label for="scope">Define your management scope and responsibilities (250 characters max)</label>
+                <textarea name="scope" rows="6" required maxlength="250" data-parsley-trigger="change" data-parsley-error-message="Please fill out this field"></textarea>
+                <label for="related">Additional Professional Experience (safety related affiliations, organizations, committees)</label>
+                <textarea name="related" rows="6" required maxlength="250" data-parsley-trigger="change" data-parsley-error-message="Please fill out this field"></textarea>
+                <div class="progress-bar">
+                    <div class="bar-75">step 3 of 4</div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h4>Resume Upload (should reflect at least last 5 years of work experience)</h4>
+                <input type="file" name="upload" required data-parsley-max-file-size="42" data-parsley-error-message="Please upload your resume" />
+                <small>PDF or MS Word formats (DOC, DOCX)</small>
+                <br/><br/>
+                <label for="date">Application Completed On: </label>
+                <input type="hidden" name="date" />
+                <div class="progress-bar">
+                    <div class="bar-100">step 4 of 4</div>
+                </div>
+            </div>
+            <div class="form-navigation">
+                <button type="button" class="button alt previous btn btn-info pull-left">&lt; Previous</button>
+                <button type="button" class="button alt next btn btn-info pull-right">Next &gt;</button>
+                <div class="recaptcha">
+                    ADD GOOGLE reCAPTCHA
+                </div>
+                <input type="submit" class="btn btn-default pull-right" value="APPLY">
+                <span class="clearfix"></span>
+            </div>
+        </form>
+    </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="parsley.min.js"></script>
+    <script>
+        /* date helper */
+        const date = new Date();
+        const formattedDate = `${date.getMonth() + 1}/${date.getDay()}/${date.getFullYear()}`;
+        const dateLabel = document.querySelector('[for="date"]');
+        const dateInput = document.querySelector('[name="date"]');
+        dateLabel.innerHTML += formattedDate;
+        dateInput.value = formattedDate;
+
+        /* form validation */
+        $(function() {
+            /* mulit-step form */
+            var $sections = $('.form-section');
+
+            function navigateTo(index) {
+                // Mark the current section with the class 'current'
+                $sections
+                    .removeClass('current')
+                    .eq(index)
+                    .addClass('current');
+
+                // Show only the navigation buttons that make sense for the current section:
+                $('.form-navigation .previous').toggle(index > 0);
+                var atTheEnd = index >= $sections.length - 1;
+                $('.form-navigation .next').toggle(!atTheEnd);
+                $('.form-navigation [type=submit]').toggle(atTheEnd);
+            }
+
+            function curIndex() {
+                // Return the current index by looking at which section has the class 'current'
+                return $sections.index($sections.filter('.current'));
+            }
+
+            // Previous button is easy, just go back
+            $('.form-navigation .previous').click(function () {
+                navigateTo(curIndex() - 1);
+            });
+
+            // Next button goes forward iff current block validates
+            $('.form-navigation .next').click(function () {
+                $('#form').parsley().whenValidate({
+                    group: 'block-' + curIndex()
+                }).done(function () {
+                    navigateTo(curIndex() + 1);
+                });
+            });
+
+            // Prepare sections by setting the `data-parsley-group` attribute to 'block-0', 'block-1', etc.
+            $sections.each(function (index, section) {
+                $(section).find(':input').attr('data-parsley-group', 'block-' + index);
+            });
+
+            navigateTo(0); // Start at the beginning
+        });
+
+        //ajax submit
+        $('#form').parsley().on('form:submit', function() {
+
+            $.ajax({
+                url:'scripts/membershipform.php',
+                data: $(this).serialize(),
+                type: 'POST',
+                success: function(data) {
+                    console.log(data);
+                    $('#success').show().fadeOut(20000);
+                },
+                error: function(data) {
+                    $("#error").show().fadeOut(20000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
