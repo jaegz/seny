@@ -1,0 +1,180 @@
+[class^="icon-"],
+[class*=" icon-"],
+.parsley-errors-list li:before
+    {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-check-circle:before {
+    content: "\e900";
+}
+.icon-x-circle:before {
+    content: "\e904";
+}
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border: 1px solid #EED3D7;
+}
+
+.parsley-errors-list {
+    margin: 2px 0 3px;
+    padding: 0;
+    list-style-type: none;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    opacity: 0;
+
+    transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+    opacity: 1;
+}
+
+*{font-family: sans-serif;}
+
+label {
+    font-weight: bold;
+    display: block;
+    font-size: 100%;
+    margin-bottom: 5px;
+    margin-top: 1em;
+}
+
+input,
+select {
+    /* /margin-top: 1em; */
+}
+
+.form-section {
+    padding-left: 15px;
+    border-left: 2px solid #FF851B;
+    display: none;
+}
+.form-section.current {
+    display: inherit;
+}
+.btn-info, .btn-default {
+    margin-top: 10px;
+}
+
+.parsley-errors-list.filled {
+    display: block;
+    margin-top: 5px;
+}
+
+.parsley-errors-list {
+    color: red;
+}
+.parsley-errors-list li:before {
+    content: "\e904";
+    margin-right: 5px;
+}
+.progress-bar {
+    margin-top: 3em;
+    border: solid 1px #e5e5e5;
+    color: white;
+}
+.bar-25 {
+    background-color: rgb(85, 175, 85);
+    width: 25%;
+    padding-left: 1em;
+}
+.bar-50 {
+    background-color: rgb(85, 175, 85);
+    width: 50%;
+    padding-left: 1em;
+}
+.bar-75 {
+    background-color: rgb(85, 175, 85);
+    width: 75%;
+    padding-left: 1em;
+}
+.bar-100 {
+    background-color: rgb(85, 175, 85);
+    width: 100%;
+    padding-left: 1em;
+}
+
+#form h4,
+h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 2em;
+}
+
+.form-navigation {
+    margin-top: 1em;
+}
+textarea {
+    appearance: none;
+    background: #f8f8f8;
+    border-radius: 6px;
+    border: solid 1px #e5e5e5;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* validation icons */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?nmh8q7');
+    src:  url('fonts/icomoon.eot?nmh8q7#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?nmh8q7') format('truetype'),
+        url('fonts/icomoon.woff?nmh8q7') format('woff'),
+        url('fonts/icomoon.svg?nmh8q7#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#form {
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition-duration: 0.3s;
+}
+
+.form-submitted-fadeout {
+    opacity: 0;
+    height: 0;
+}
+
+.form-success {
+    padding: 20px;
+    background-color: #55af55;
+    color: white;
+    font-weight: bold;
+}
+
+.btn__apply {
+    color: #55af55;
+    font-weight: bold;
+}

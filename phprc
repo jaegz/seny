@@ -1,0 +1,7 @@
+; {{{ The following lines were automatically added by DreamHost
+zend_extension=opcache.so
+; }}} That's all from DreamHost
+upload_max_filesize = 100M
+post_max_size = 105M
+max_execution_time = 500
+max_input_time = 500
